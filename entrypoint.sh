@@ -1,12 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e 
 # Выполняем подготовительные команды
-# poetry run data_forge first-migrate
+poetry run python manage.py makemigrations app
+poetry run python manage.py migrate
 # echo "First migration completed"
-# poetry run data_forge insert-data
+poetry run data_forge insert-data
 # echo "First insert data completed"
-# poetry run data_forge create-super-user
+poetry run data_forge create-super-user
 # echo "Super user created"
 
 # Запускаем ASGI-сервер

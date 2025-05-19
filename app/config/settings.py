@@ -22,29 +22,51 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
     10. ASGI, WebSockets и Background Tasks (Asgi Settings)
 """
 
-from pathlib import Path
-from dotenv import load_dotenv
 import os
 from enum import Enum
+from pathlib import Path
 
+from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class DjangoBuiltInApps(Enum):
     """Перечисление всех встроенных Django-приложений с описанием"""
-    
+
     ADMIN = ("django.contrib.admin", "Панель администратора Django")
     AUTH = ("django.contrib.auth", "Система аутентификации и авторизации пользователей")
-    CONTENTTYPES = ("django.contrib.contenttypes", "Поддержка динамических типов данных (GenericRelations)")
+    CONTENTTYPES = (
+        "django.contrib.contenttypes",
+        "Поддержка динамических типов данных (GenericRelations)",
+    )
     SESSIONS = ("django.contrib.sessions", "Управление сессиями пользователей")
-    MESSAGES = ("django.contrib.messages", "Встроенная система сообщений (flash messages)")
-    STATICFILES = ("django.contrib.staticfiles", "Обслуживание статических файлов (CSS, JS, изображения)")
-    SITES = ("django.contrib.sites", "Поддержка нескольких сайтов в одном Django-проекте")
+    MESSAGES = (
+        "django.contrib.messages",
+        "Встроенная система сообщений (flash messages)",
+    )
+    STATICFILES = (
+        "django.contrib.staticfiles",
+        "Обслуживание статических файлов (CSS, JS, изображения)",
+    )
+    SITES = (
+        "django.contrib.sites",
+        "Поддержка нескольких сайтов в одном Django-проекте",
+    )
     REDIRECTS = ("django.contrib.redirects", "Позволяет делать редиректы через админку")
-    SITEMAPS = ("django.contrib.sitemaps", "Генерация XML-карт сайта для поисковых систем")
-    HUMANIZE = ("django.contrib.humanize", "Улучшает отображение чисел (например, 1000000 → 1,000,000)")
+    SITEMAPS = (
+        "django.contrib.sitemaps",
+        "Генерация XML-карт сайта для поисковых систем",
+    )
+    HUMANIZE = (
+        "django.contrib.humanize",
+        "Улучшает отображение чисел (например, 1000000 → 1,000,000)",
+    )
     FLATPAGES = ("django.contrib.flatpages", "Упрощённое создание статических страниц")
-    POSTGRES = ("django.contrib.postgres", "Расширенные функции для PostgreSQL (JSONB, full-text search и т. д.)")
+    POSTGRES = (
+        "django.contrib.postgres",
+        "Расширенные функции для PostgreSQL (JSONB, full-text search и т. д.)",
+    )
     GIS = ("django.contrib.gis", "Поддержка геоданных (GeoDjango)")
     SYNDICATION = ("django.contrib.syndication", "Генерация RSS-лент")
     ADMINDOCS = ("django.contrib.admindocs", "Документация для админки")
@@ -59,66 +81,124 @@ class DjangoBuiltInApps(Enum):
 
 class DjangoMiddleware(Enum):
     """Перечисление всех встроенных Django Middleware с описанием"""
-    
-    SECURITY = ("django.middleware.security.SecurityMiddleware", "Защита HTTP-заголовками, редирект HTTP → HTTPS")
-    SESSION = ("django.contrib.sessions.middleware.SessionMiddleware", "Работа с сессиями пользователей")
-    COMMON = ("django.middleware.common.CommonMiddleware", "Обрабатывает редиректы и добавляет `/` в конце URL")
-    CSRF = ("django.middleware.csrf.CsrfViewMiddleware", "Защита от CSRF-атак (требует CSRF-токен в POST-запросах)")
-    AUTHENTICATION = ("django.contrib.auth.middleware.AuthenticationMiddleware", "Добавляет request.user для аутентификации")
-    MESSAGES = ("django.contrib.messages.middleware.MessageMiddleware", "Позволяет передавать flash-сообщения")
-    CLICKJACKING = ("django.middleware.clickjacking.XFrameOptionsMiddleware", "Защита от Clickjacking-атак (запрещает iframe)")
-    LOCALE = ("django.middleware.locale.LocaleMiddleware", "Автоматически определяет язык пользователя")
-    GZIP = ("django.middleware.gzip.GZipMiddleware", "Сжимает HTML-ответы GZIP-сжатием для ускорения загрузки")
-    CONDITIONAL_GET = ("django.middleware.http.ConditionalGetMiddleware", "Добавляет HTTP-кэширование (304 Not Modified)")
-    FLATPAGES = ("django.contrib.flatpages.middleware.FlatpageFallbackMiddleware", "Автоматически подставляет статические страницы")
-    CACHE = ("django.middleware.cache.UpdateCacheMiddleware", "Сохраняет кэшированные страницы в начале запроса")
-    FETCH_FROM_CACHE = ("django.middleware.cache.FetchFromCacheMiddleware", "Отдает кэшированные страницы в конце запроса")
-    BROKEN_LINKS = ("django.middleware.common.BrokenLinkEmailsMiddleware", "Отправляет email-уведомления об ошибках 404")
-    HSTS = ("django.middleware.security.SecurityMiddleware", "Включает HTTP Strict Transport Security (HSTS) для защиты от атак downgrade-HTTPS")
-    REFERRER_POLICY = ("django.middleware.security.SecurityMiddleware", "Добавляет заголовок Referrer-Policy для защиты приватности пользователей")
-    LIFESPANSTATE = ("django_asgi_lifespan.middleware.LifespanStateMiddleware", "middleware для доступа к состоянию")
+
+    SECURITY = (
+        "django.middleware.security.SecurityMiddleware",
+        "Защита HTTP-заголовками, редирект HTTP → HTTPS",
+    )
+    SESSION = (
+        "django.contrib.sessions.middleware.SessionMiddleware",
+        "Работа с сессиями пользователей",
+    )
+    COMMON = (
+        "django.middleware.common.CommonMiddleware",
+        "Обрабатывает редиректы и добавляет `/` в конце URL",
+    )
+    CSRF = (
+        "django.middleware.csrf.CsrfViewMiddleware",
+        "Защита от CSRF-атак (требует CSRF-токен в POST-запросах)",
+    )
+    AUTHENTICATION = (
+        "django.contrib.auth.middleware.AuthenticationMiddleware",
+        "Добавляет request.user для аутентификации",
+    )
+    MESSAGES = (
+        "django.contrib.messages.middleware.MessageMiddleware",
+        "Позволяет передавать flash-сообщения",
+    )
+    CLICKJACKING = (
+        "django.middleware.clickjacking.XFrameOptionsMiddleware",
+        "Защита от Clickjacking-атак (запрещает iframe)",
+    )
+    LOCALE = (
+        "django.middleware.locale.LocaleMiddleware",
+        "Автоматически определяет язык пользователя",
+    )
+    GZIP = (
+        "django.middleware.gzip.GZipMiddleware",
+        "Сжимает HTML-ответы GZIP-сжатием для ускорения загрузки",
+    )
+    CONDITIONAL_GET = (
+        "django.middleware.http.ConditionalGetMiddleware",
+        "Добавляет HTTP-кэширование (304 Not Modified)",
+    )
+    FLATPAGES = (
+        "django.contrib.flatpages.middleware.FlatpageFallbackMiddleware",
+        "Автоматически подставляет статические страницы",
+    )
+    CACHE = (
+        "django.middleware.cache.UpdateCacheMiddleware",
+        "Сохраняет кэшированные страницы в начале запроса",
+    )
+    FETCH_FROM_CACHE = (
+        "django.middleware.cache.FetchFromCacheMiddleware",
+        "Отдает кэшированные страницы в конце запроса",
+    )
+    BROKEN_LINKS = (
+        "django.middleware.common.BrokenLinkEmailsMiddleware",
+        "Отправляет email-уведомления об ошибках 404",
+    )
+    HSTS = (
+        "django.middleware.security.SecurityMiddleware",
+        "Включает HTTP Strict Transport Security (HSTS) для защиты от атак downgrade-HTTPS",
+    )
+    REFERRER_POLICY = (
+        "django.middleware.security.SecurityMiddleware",
+        "Добавляет заголовок Referrer-Policy для защиты приватности пользователей",
+    )
+    LIFESPANSTATE = (
+        "django_asgi_lifespan.middleware.LifespanStateMiddleware",
+        "middleware для доступа к состоянию",
+    )
 
     def __init__(self, middleware_path: str, description: str):
         self.middleware_path = middleware_path
         self.description = description
-        
-        
+
+
 class DjangoTemplateEngines(Enum):
     """Перечисление всех поддерживаемых движков шаблонов в Django"""
 
-    DJANGO = ("django.template.backends.django.DjangoTemplates", "Стандартный встроенный движок Django Templates (DTL)")
-    JINJA2 = ("django.template.backends.jinja2.Jinja2", "Быстрый шаблонизатор Jinja2, совместимый с Django")
-    
+    DJANGO = (
+        "django.template.backends.django.DjangoTemplates",
+        "Стандартный встроенный движок Django Templates (DTL)",
+    )
+    JINJA2 = (
+        "django.template.backends.jinja2.Jinja2",
+        "Быстрый шаблонизатор Jinja2, совместимый с Django",
+    )
+
     def __init__(self, backend_path: str, description: str):
         self.backend_path = backend_path
         self.description = description
 
+
 # 1. Основные настройки (Core Settings)
 BASE_DIR = Path(__file__).resolve().parent.parent
 INSTALLED_APPS: list = [
-        DjangoBuiltInApps.ADMIN.app_name,
-        DjangoBuiltInApps.ADMINDOCS.app_name,
-        DjangoBuiltInApps.AUTH.app_name,
-        DjangoBuiltInApps.CONTENTTYPES.app_name,
-        DjangoBuiltInApps.SESSIONS.app_name,
-        DjangoBuiltInApps.MESSAGES.app_name,
-        DjangoBuiltInApps.STATICFILES.app_name,
-        DjangoBuiltInApps.DRF_SPECTACULAR.app_name,
-        DjangoBuiltInApps.DRF_SPECTACULAR_SIDECAR.app_name,
-        DjangoBuiltInApps.OAUTH2_PROVIDER.app_name,
-        "app",
-        "app.admin_panel",
-        "rest_framework"
-        ]
+    DjangoBuiltInApps.ADMIN.app_name,
+    DjangoBuiltInApps.ADMINDOCS.app_name,
+    DjangoBuiltInApps.AUTH.app_name,
+    DjangoBuiltInApps.CONTENTTYPES.app_name,
+    DjangoBuiltInApps.SESSIONS.app_name,
+    DjangoBuiltInApps.MESSAGES.app_name,
+    DjangoBuiltInApps.STATICFILES.app_name,
+    DjangoBuiltInApps.DRF_SPECTACULAR.app_name,
+    DjangoBuiltInApps.DRF_SPECTACULAR_SIDECAR.app_name,
+    DjangoBuiltInApps.OAUTH2_PROVIDER.app_name,
+    "app",
+    "app.admin_panel",
+    "rest_framework",
+]
 # Определяет тип поля id по умолчанию для всех моделей Django.
-DEFAULT_AUTO_FIELD:str = "django.db.models.BigAutoField"
-MONGO_URI: str = os.getenv("MONGO_URI","")
-DB_SCHEMA: str = os.getenv("DB_SCHEMA","")
-POSTGRES_DB: str = os.getenv("POSTGRES_DB","")
-POSTGRES_USER: str = os.getenv("POSTGRES_USER","")
-POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD","")
-POSTGRES_HOST: str = os.getenv("POSTGRES_HOST","")
-POSTGRES_PORT: str = os.getenv("POSTGRES_PORT_LOCAL","")
+DEFAULT_AUTO_FIELD: str = "django.db.models.BigAutoField"
+MONGO_URI: str = os.getenv("MONGO_URI", "")
+DB_SCHEMA: str = os.getenv("DB_SCHEMA", "")
+POSTGRES_DB: str = os.getenv("POSTGRES_DB", "")
+POSTGRES_USER: str = os.getenv("POSTGRES_USER", "")
+POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD", "")
+POSTGRES_HOST: str = os.getenv("POSTGRES_HOST", "")
+POSTGRES_PORT: str = os.getenv("POSTGRES_PORT_LOCAL", "")
 ROOT_URLCONF = "app.config.urls"
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
@@ -129,13 +209,14 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
     "SERVE_FORMATS": ["json"],
-    "DEFAULT_FORMATS": ["json"]
+    "DEFAULT_FORMATS": ["json"],
 }
 
 # 2. Безопасность (Security Settings)
-# Главный ключ безопасности, используемый для шифрования сессий, CSRF-токенов, паролей и подписей данных.
-SECRET_KEY: str = os.getenv("DJANGO_SECRET_KEY","")
- # Список разрешённых доменов, с которых можно обращаться к серверу Django.
+# Главный ключ безопасности, используемый для шифрования сессий, 
+# CSRF-токенов, паролей и подписей данных.
+SECRET_KEY: str = os.getenv("DJANGO_SECRET_KEY", "")
+# Список разрешённых доменов, с которых можно обращаться к серверу Django.
 ALLOWED_HOSTS: list = ["*"]
 # HTTPS & HSTS
 SECURE_SSL_REDIRECT: bool = False
@@ -155,56 +236,60 @@ SESSION_COOKIE_HTTPONLY: bool = True
 SESSION_COOKIE_SAMESITE: str = "Lax"
 # Защита рефереров
 SECURE_REFERRER_POLICY: str = "strict-origin-when-cross-origin"
-    
+
 # 3. База данных (Database Settings)
 DATABASES: dict = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",  # Движок БД (PostgreSQL)
-            "NAME": POSTGRES_DB,  # Название БД
-            "USER": POSTGRES_USER,  # Имя пользователя
-            "PASSWORD": POSTGRES_PASSWORD,  # Пароль
-            "HOST": POSTGRES_HOST,  # IP-адрес сервера БД
-            "PORT": POSTGRES_PORT,  # Порт PostgreSQL
-            "CONN_MAX_AGE": 0,
-            "CONN_HEALTH_CHECKS": True,  # Проверять соединения перед использованием
-            "OPTIONS": {
-                "connect_timeout": 10,  # Таймаут на подключение к БД (сек)
-                "options": "-c statement_timeout=5000",  # Ограничение на выполнение SQL-запросов (мс)
-            },
-            "ATOMIC_REQUESTS": False,
-            "AUTOCOMMIT": True,  # Автоматический commit SQL-запросов
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",  # Движок БД (PostgreSQL)
+        "NAME": POSTGRES_DB,  # Название БД
+        "USER": POSTGRES_USER,  # Имя пользователя
+        "PASSWORD": POSTGRES_PASSWORD,  # Пароль
+        "HOST": POSTGRES_HOST,  # IP-адрес сервера БД
+        "PORT": POSTGRES_PORT,  # Порт PostgreSQL
+        "CONN_MAX_AGE": 0,
+        "CONN_HEALTH_CHECKS": True,  # Проверять соединения перед использованием
+        "OPTIONS": {
+            "connect_timeout": 10,  # Таймаут на подключение к БД (сек)
+            "options": "-c statement_timeout=5000",  # Ограничение на выполнение SQL-запросов (мс)
+        },
+        "ATOMIC_REQUESTS": False,
+        "AUTOCOMMIT": True,  # Автоматический commit SQL-запросов
     }
 }
-    
+
 # 4. Middleware и обработка запросов (Middleware Settings)
-MIDDLEWARE:list = [
-        DjangoMiddleware.SECURITY.middleware_path,
-        DjangoMiddleware.SESSION.middleware_path,
-        DjangoMiddleware.COMMON.middleware_path,
-        DjangoMiddleware.CSRF.middleware_path,
-        DjangoMiddleware.AUTHENTICATION.middleware_path,
-        DjangoMiddleware.MESSAGES.middleware_path,
-        DjangoMiddleware.CLICKJACKING.middleware_path,
-        DjangoMiddleware.LIFESPANSTATE.middleware_path,
-        ]
-    
-   
-# 5. Шаблоны и рендеринг (Templates & Rendering)  
-TEMPLATES:list = [
+MIDDLEWARE: list = [
+    DjangoMiddleware.SECURITY.middleware_path,
+    DjangoMiddleware.SESSION.middleware_path,
+    DjangoMiddleware.COMMON.middleware_path,
+    DjangoMiddleware.CSRF.middleware_path,
+    DjangoMiddleware.AUTHENTICATION.middleware_path,
+    DjangoMiddleware.MESSAGES.middleware_path,
+    DjangoMiddleware.CLICKJACKING.middleware_path,
+    DjangoMiddleware.LIFESPANSTATE.middleware_path,
+]
+
+
+# 5. Шаблоны и рендеринг (Templates & Rendering)
+TEMPLATES: list = [
     {
         "BACKEND": DjangoTemplateEngines.DJANGO.backend_path,
         "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
-            'debug': True,  # Показывает ошибки шаблонов
+            "debug": True,  # Показывает ошибки шаблонов
             "context_processors": [
-                "django.template.context_processors.debug", # Включает debug-данные в шаблоне
-                "django.template.context_processors.request", # Добавляет request в шаблон
-                "django.contrib.auth.context_processors.auth", # Добавляет user и is_authenticated
-                "django.contrib.messages.context_processors.messages" # Позволяет выводить flash-сообщения ({{ messages }}).
+                # Включает debug-данные в шаблоне
+                "django.template.context_processors.debug",  
+                 # Добавляет request в шаблон
+                "django.template.context_processors.request", 
+                # Добавляет user и is_authenticated
+                "django.contrib.auth.context_processors.auth",  
+                # Позволяет выводить flash-сообщения ({{ messages }}).
+                "django.contrib.messages.context_processors.messages",  
             ],
-            'autoescape': True,  # Включает экранирование HTML
-            'string_if_invalid': '[ОШИБКА: {{ variable }}]',  # Если переменная не найдена
+            "autoescape": True,  # Включает экранирование HTML
+            "string_if_invalid": "[ОШИБКА: {{ variable }}]",  # Если переменная не найдена
             # 'loaders': [
             #     ('django.template.loaders.cached.Loader', [
             #         'django.template.loaders.filesystem.Loader',
@@ -213,30 +298,32 @@ TEMPLATES:list = [
             # 'libraries': {
             #     'custom_tags': 'myapp.templatetags.custom_tags',
             # }
-        }
+        },
     }
 ]
-    
+
 # 6. Локализация и время (Localization & Timezone Settings)
-LANGUAGE_CODE:str = "ru"
-TIME_ZONE:str = "Asia/Almaty"
+LANGUAGE_CODE: str = "ru"
+TIME_ZONE: str = "Asia/Almaty"
 # 🛠 Поддержка локализации
 USE_I18N: bool = True  # Включает переводы
 USE_TZ: bool = True  # Django использует UTC в БД, но отображает локальное время
 USE_L10N: bool = True  # Автоматическое форматирование дат и чисел
-LOCALE_PATHS: list = [
-    os.path.join(BASE_DIR, "locale")]
+LOCALE_PATHS: list = [os.path.join(BASE_DIR, "locale")]
 
 
 # 7. Файлы и статика (Static & Media Files Settings)
 # 📂 Статические файлы (CSS, JS, изображения)
 STATIC_URL: str = "/static/"
-# STATICFILES_DIRS: list = [os.path.join(BASE_DIR, "static")]  # Где Django ищет статику
-# STATIC_ROOT: str = os.path.join(BASE_DIR, "staticfiles")  # Куда копируются файлы в продакшене
+# Где Django ищет статику
+# STATICFILES_DIRS: list = [os.path.join(BASE_DIR, "static")]  
+ # Куда копируются файлы в продакшене
+# STATIC_ROOT: str = os.path.join(BASE_DIR, "staticfiles") 
 # # 🖼 Файлы, загружаемые пользователями
 # MEDIA_URL: str = "/media/"
-# MEDIA_ROOT: str = os.path.join(BASE_DIR, "media")  # Куда сохраняются файлы пользователей
-    
+# Куда сохраняются файлы пользователей
+# MEDIA_ROOT: str = os.path.join(BASE_DIR, "media")  
+
 
 # 8. Логирование и отладка (Logging & Debugging)
 DEBUG: bool = True
@@ -271,7 +358,6 @@ LOGGING: dict = {
             "handlers": ["file", "console"],
             "level": "DEBUG",
             "propagate": True,
-            },
         },
-    }
-
+    },
+}

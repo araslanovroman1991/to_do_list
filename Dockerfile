@@ -8,11 +8,8 @@ ENV POETRY_VERSION=1.6.1 \
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
-    build-essential \
     libffi-dev \
-    python3-dev \
     libssl-dev \
-    cargo \
     curl \
  && apt-get clean && rm -rf /var/lib/apt/lists/*
 

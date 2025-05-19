@@ -24,6 +24,10 @@ django-asgi-lifespan = "^0.4.0"
 psycopg2-binary = "^2.9.10"
 typer = "^0.15.4"
 djangorestframework = "^3.16.0"
+ruff = "^0.11.10"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -31,4 +35,17 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 data_forge = "data_forge.cli:main"
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "C90", "PL", "B", "SIM", "RET", "ARG"]
+fixable = ["ALL"]
 

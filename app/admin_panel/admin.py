@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from app.models.models import Categories, Projects, Tasks, TasksAssociation, User
 
 
