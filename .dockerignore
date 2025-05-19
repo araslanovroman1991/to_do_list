@@ -1,0 +1,10 @@
+venv
+__pycache__
+logs/
+.git
+*.md
+.cache
+help.txt
+.idea
+.vscode
+.mypy_cache

@@ -1,0 +1,94 @@
+[
+    {
+        "project_title": "Дневник самопознания",
+        "project_description": "Ведение структурированного дневника на основе юнгианской психологии, архетипов, символов.",
+        "project_category": 1
+    },
+    {
+        "project_title": "Жизненная библиотека",
+        "project_description": "Создание цифрового архива книг, фильмов, статей, повлиявших на мировоззрение. С аннотациями и выводами.",
+        "project_category": 1
+    },
+    {
+        "project_title": "Проект Круг близости",
+        "project_description": "Развитие осознанных отношений: встреча раз в месяц с друзьями/родными + дневник взаимодействия.",
+        "project_category": 2
+    },
+    {
+        "project_title": "Укрепление социальных связей",
+        "project_description": "Регулярное посещение конференций",
+        "project_category": 2
+    },
+    {
+        "project_title": "Создание личного бренда",
+        "project_description": "Прокачка личного бренда в социальных сетях, построение воронки продаж",
+        "project_category": 3
+    },
+    {
+        "project_title": "Scill Factory",
+        "project_description": "Ежедневное расширение кругозора.",
+        "project_category": 3
+    },
+    {
+        "project_title": "Language Factory",
+        "project_description": "Ежедневное изучение иностранных языков.",
+        "project_category": 3
+    },
+    {
+        "project_title": "Семейное древо с историями",
+        "project_description": "Создание сайта с представлением родового древа, фотографиями и комментариями",
+        "project_category": 4
+    },
+    {
+        "project_title": "Голоса предков (Аудио-наследие)",
+        "project_description": "Запись аудиоинтервью со старшими членами семьи, в которых они делятся своими воспоминаниями, жизненными уроками, историями рода, традициями и мудростью.",
+        "project_category": 4
+    },
+    {
+        "project_title": "Lucid dreams",
+        "project_description": "Изучение осознанных сновидений",
+        "project_category": 5
+    },
+    {
+        "project_title": "Медитации",
+        "project_description": "Проведение ежедневных медитаций",
+        "project_category": 5
+    },
+    {
+        "project_title": "Концерты",
+        "project_description": "Посещение развлекательных мероприятий",
+        "project_category": 6
+    },
+    {
+        "project_title": "Новые локации",
+        "project_description": "Посещение необычных мест, стран, локаций",
+        "project_category": 6
+    },
+    {
+        "project_title": "Open-source",
+        "project_description": "Создание доступных open-source решений для решения важных задач",
+        "project_category": 7
+    },
+    {
+        "project_title": "Передача опыта",
+        "project_description": "Ведение общедоступных заметок, статей, публикаций",
+        "project_category": 7
+    },
+    {
+        "project_title": "Фонд опоры",
+        "project_description": "Создание финансовой подушки + проработка пенсионной программы",
+        "project_category": 8
+    },
+    {
+        "project_title": "Passive Income",
+        "project_description": "Создание пассивных источников дохода, инвестирование",
+        "project_category": 8
+    },
+    {
+        "project_title": "Commercial Soft",
+        "project_description": "Создание софта для извлечения прибыли",
+        "project_category": 8
+    }
+    
+    
+  ]
